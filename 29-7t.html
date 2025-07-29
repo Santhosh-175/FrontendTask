@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santhosh Form</title>
+</head>
+<body>
+  <fieldset>
+    <center>
+      <img src="ts.jpeg" alt="" width="10%">
+      <h4>TELANGANA STATE ROAD TRANSPORT CORPORATION</h4>
+      <h5>GENERAL BUS PASS APPLICATION</h5>
+    </center>
+  </fieldset>
+  <fieldset>
+    <legend>Applicant Form</legend>
+    <table>
+      <tr>
+        <td>
+          <label for="firstname">First Name:<sup style="color: brown;">*</sup></label>
+          <input type="text" name="firstname" id="firstname" placeholder="Enter First name:" required><br>
+          (max characters:20)
+        </td>
+        <td>
+          <label for="firstname">Father's Name:<sup style="color: brown;">*</sup></label>
+          <input type="text" name="fathername" id="fathername" placeholder="Enter Father's name:" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <br>
+          <label for="dob">Date of Birth:<sup style="color: brown;">*</sup></label><br>
+          <input type="date" name="dob" id="dob">
+        </td>
+        <td>
+          <br>
+          <label for="gender">Gender:<sup style="color: brown;">*</sup></label> <br>
+          <input type="radio" name="gender" value="Male"> Male
+          <input type="radio" name="gender" value="Female"> Female
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <br>
+          <label for="ageason">Age As on:<sup style="color: brown;">*</sup></label> <br>
+          <input type="date">
+
+        </td>
+        <td>
+          <br>
+          <label for="aadhar">Aadhaar:<sup style="color: brown;">*</sup></label> <br>
+          <input type="text" name="aadhar" maxlength="12" minlength="12" id="aadhar">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <br>
+          <label for="phnno">Whatsapp No:<sup style="color: brown;">*</sup></label><br>
+          <input type="tel" name="phnno" id="phnno">
+        </td>
+        <td>
+          <br>
+          <label for="email">Email:<sup style="color: brown;">*</sup></label><br>
+          <input type="email" name="email">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <br>
+          <label for="photo">Photo<sup style="color: brown;">*</sup></label><br>
+          <input type="file" name="Phone">
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  </fieldset> <br>
+
+  <fieldset>
+    <legend>Residential Address Details</legend>
+    <table>
+      <tr>
+        <td>
+          <label for="Address">Applicant's Address:</label><br>
+          <textarea rows="10" cols="20"  name="Address" id=""></textarea><br>
+        </td>
+        <td>
+          <label for="district">District:</label>
+          <select name="district" id="course">
+          <option value="">--Select--</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Cyberabad">Cyberabad</option>
+          <option value="Rangareddy">Rangareddy</option>
+          <option value="Medchal">Medchal</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        
+        <td>
+          <br>
+          <label for="district">Mandal:</label>
+          <select name="district" id="course">
+          <option value="">--Select--</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Cyberabad">Cyberabad</option>
+          <option value="Rangareddy">Rangareddy</option>
+          <option value="Medchal">Medchal</option>
+          </select> <br>
+        </td>
+        <td>
+          <br>
+          <label for="district">Village:</label>
+          <select name="district" id="course">
+          <option value="">--Select--</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Cyberabad">Cyberabad</option>
+          <option value="Rangareddy">Rangareddy</option>
+          <option value="Medchal">Medchal</option>
+          </select>
+          <br>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <br>
+          <label for="pin">Pincode:</label><br>
+          <input type="text" name="Pincode" id="pin">
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  </fieldset><br>
+  <fieldset>
+    <legend>Pass Type Details:</legend>
+    <table>
+      <tr>
+        <td>
+          <label for="district">City:</label>
+          <select name="district" id="course">
+          <option value="">--Select--</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Cyberabad">Cyberabad</option>
+          <option value="Rangareddy">Rangareddy</option>
+          <option value="Medchal">Medchal</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="district">PassType:</label>
+          <select name="district" id="course">
+          <option value="">--Select--</option>
+          <option value="Hyderabad">General Pass</option>
+          <option value="Cyberabad">Deluxe Pass</option>
+          <option value="Rangareddy">Metro Pass</option>
+          <option value="Medchal">Ordinary Pass</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+  </fieldset> <br>
+
+  <center>
+    <div class="g-recaptcha" data-sitekey="http://127.0.0.1:3000/29-7t.html"></div><br>
+    <input type="submit" name="submit">
+  </center>
+
+</body>
+</html>
