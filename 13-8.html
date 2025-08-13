@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Santhosh's Web Portfolio</title>
+</head>
+<body>
+<table border="2" width="100%">
+    <tr>
+        <td align="center" colspan="2">
+            <h1>Santhosh's Web Portfolio</h1>
+            <p>Showcasing HTML Skills using Tables</p>
+            <a href="#about">About</a> | 
+            <a href="#skills">Skills</a> | 
+            <a href="#projects">Projects</a> | 
+            <a href="#contact">Contact</a>
+        </td>
+    </tr>
+    <tr id="about">
+        <td colspan="2">
+            <h2>About Me</h2>
+            <center><img src="photo.jpg" alt="santhosh" width="80"></center>
+            <p>Hello! I'm Santhosh, a passionate web developer. I love building semantic, accessible, and responsive websites using core web technologies.</p>
+            <p>I specialize in front-end development, especially HTML, CSS, and JavaScript.</p>
+            
+        </td>
+    </tr>
+    <tr>
+        <td id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML5 / CSS3</li>
+                <li>JS</li>
+                <li>Responsive Design</li>
+                <li>Git & Github</li>
+            </ul>
+
+            <h3>Skill Levels</h3>
+            <table border="2">
+                <tr>
+                    <th>Skill</th>
+                    <th>Level</th>
+                </tr>
+                <tr>
+                    <td>HTML</td>
+                    <td>Expert</td>
+                </tr>
+                <tr>
+                    <td>CSS</td>
+                    <td>Advanced</td>
+                </tr>
+                <tr>
+                    <td>JavaScript</td>
+                    <td>Intermediate</td>
+                </tr>
+            </table>
+        </td>
+        <td id="projects">
+            <h2>Projects</h2>
+            <ol>
+                <li><b>Brain Tumor Detection using Modified VGG-19 Model</b> – A deep learning-based approach for accurate tumor detection in MRI scans.</li>
+
+                <li><b>YOLOv5 Powered Real-Time Face Mask Recognition via Cameras</b> – Detects and classifies mask usage in real time using computer vision.</li>
+            </ol>
+
+            <center><img src="p1.png" alt="" width="150">
+                <img src="p2.png" alt="" width="150">
+            </center>
+
+        </td>
+    </tr>
+<tr id="contact">
+        <td colspan="2">
+            <h2>Contact Me</h2>
+            <form action="./submit" method="get">
+                <label for="fullname">Full Name:</label>
+                <input type="text" name="fullname" id="fullname"> <br> <br>
+                <label for="Email">Email:</label>
+                <input type="email" id="Email">
+                <p>Gender:
+                    <input type="radio" name="gender" value="Male"> Male
+                    <input type="radio" name="gender" value="Female"> Female
+                </p>
+                <p>Service Interested:
+                    <input type="checkbox" name="service" value="Web Design"> Web Design
+                    <input type="checkbox" name="service" value="SEO"> SEO
+                </p>
+                <p>Country:
+                    <select name="country">
+                        <option value="select">--select--</option>
+                        <option value="USA">USA</option>
+                        <option value="India">India</option>
+                        <option value="UK">UK</option>
+                    </select>
+                </p>
+                <p>Message:<br>
+                    <textarea name="message" rows="4" cols="40"></textarea>
+                </p>
+                <p>
+                    <input type="submit" value="Send">
+                    <input type="reset" value="Clear">
+                </p>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            Last Updated: August 13, 2025 <br>
+            Created by Santhosh. <br>
+            Email: vuyyurusanthosh36@gmail.com <br>
+            Website: example.com <br>
+            © 2025 Santhosh. All rights reserved.
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
