@@ -27,26 +27,30 @@
     <!-- Custom CSS -->
     <style>
         :root {
-            --primary: #1e3a5f;
-            --primary-light: #2d5a8e;
-            --secondary: #8b5a2b;
-            --accent: #ff6b35;
-            --accent-light: #ff8c5a;
-            --light: #f8f9fa;
+            --primary: #0f4c5c;
+            --primary-dark: #072e35;
+            --primary-light: #1a6b82;
+            --secondary: #4caf50;
+            --accent: #ff9800;
+            --accent-light: #ffb74d;
+            --light: #f5f7fa;
             --white: #ffffff;
-            --cream: #faf6f0;
-            --beige: #f5f2e8;
-            --sage: #87a96b;
-            --terracotta: #d2691e;
-            --gold: #daa520;
-            --success: #27ae60;
-            --warning: #f39c12;
-            --gradient: linear-gradient(135deg, #1e3a5f 0%, #2d5a8e 100%);
-            --gradient-warm: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
+            --cream: #f8f9fa;
+            --beige: #f1f3f4;
+            --sage: #81c784;
+            --terracotta: #e65100;
+            --gold: #ffc107;
+            --success: #4caf50;
+            --warning: #ff9800;
+            --gradient: linear-gradient(135deg, #0f4c5c 0%, #1a6b82 100%);
+            --gradient-warm: linear-gradient(135deg, #ff9800 0%, #ffb74d 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(15, 76, 92, 0.9) 0%, rgba(26, 107, 130, 0.85) 100%);
             --shadow-sm: 0 5px 15px rgba(0,0,0,0.08);
             --shadow-md: 0 10px 30px rgba(0,0,0,0.12);
-            --shadow-lg: 0 20px 40px rgba(30, 58, 95, 0.15);
-            --gray: #6c757d;
+            --shadow-lg: 0 20px 40px rgba(15, 76, 92, 0.15);
+            --shadow-xl: 0 25px 50px rgba(15, 76, 92, 0.2);
+            --gray: #546e7a;
+            --text-light: #78909c;
         }
 
         * { 
@@ -100,7 +104,7 @@
             z-index: 9999;
             transition: all 0.1s ease;
             transform: translate(-50%, -50%);
-            background: rgba(30, 58, 95, 0.1);
+            background: rgba(15, 76, 92, 0.1);
         }
 
         .cursor-follower {
@@ -113,7 +117,7 @@
             z-index: 9998;
             transition: all 0.15s ease;
             transform: translate(-50%, -50%);
-            background: rgba(255, 107, 53, 0.05);
+            background: rgba(255, 152, 0, 0.05);
         }
 
         .cursor-dot {
@@ -131,14 +135,14 @@
             width: 30px;
             height: 30px;
             border: 3px solid var(--primary);
-            background: rgba(30, 58, 95, 0.1);
+            background: rgba(15, 76, 92, 0.1);
         }
 
         .cursor-follower-grow {
             width: 60px;
             height: 60px;
             border: 2px solid var(--accent);
-            background: rgba(255, 107, 53, 0.1);
+            background: rgba(255, 152, 0, 0.1);
         }
 
         .cursor-text {
@@ -182,12 +186,28 @@
             pointer-events: none;
         }
 
+        .loading-logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .loading-logo-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-xl);
+            animation: float 3s ease-in-out infinite;
+            border: 4px solid var(--primary);
+        }
+
         .loading-logo {
             font-size: 3rem;
             font-weight: 900;
             font-family: 'Playfair Display', serif;
             color: var(--primary);
-            margin-bottom: 30px;
             letter-spacing: 2px;
             animation: float 3s ease-in-out infinite;
         }
@@ -272,7 +292,7 @@
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-md);
             z-index: 1000;
             transition: all 0.3s ease;
         }
@@ -302,22 +322,23 @@
         }
 
         .logo-icon {
-    width: 70px;
-    height: 70px;
-    background: transparent; /* Remove gradient background */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
+            width: 70px;
+            height: 70px;
+            background: transparent;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+        }
 
-.logo-icon img {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-    border-radius: 50%;
-}
+        .logo-icon img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
 
         .logo span {
             color: var(--accent);
@@ -336,6 +357,7 @@
             position: relative;
             transition: all 0.3s ease;
             cursor: pointer;
+            padding: 5px 0;
         }
 
         .nav-link::after {
@@ -396,7 +418,7 @@
             display: flex;
             align-items: center;
             overflow: hidden;
-            background: url('./logo-photoaidcom-cropped.jpg') cover no-repeat;
+            background: url() center/cover no-repeat;
         }
 
         .hero::before {
@@ -406,7 +428,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(30, 58, 95, 0.85) 0%, rgba(45, 90, 142, 0.75) 100%);
+            background: var(--gradient-hero);
             z-index: 1;
         }
 
@@ -530,6 +552,7 @@
             background: var(--gradient-warm);
             color: white;
             border: none;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
         }
 
         .btn-primary::before {
@@ -549,7 +572,7 @@
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 10px 30px rgba(255, 152, 0, 0.4);
         }
 
         .btn-outline {
@@ -562,7 +585,7 @@
             background: white;
             color: var(--primary);
             transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-xl);
         }
 
         /* Floating Elements */
@@ -641,8 +664,25 @@
 
         /* ==================== FEATURES SECTION ==================== */
         .features {
-            padding: 80px 0;
-            background: var(--cream);
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--light) 0%, var(--cream) 100%);
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%230f4c5c" stroke-width="0.5" opacity="0.1"/></svg>');
+            z-index: 0;
+        }
+
+        .features-container {
+            position: relative;
+            z-index: 1;
         }
 
         .features-grid {
@@ -681,7 +721,7 @@
 
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-xl);
         }
 
         .feature-icon {
@@ -695,6 +735,7 @@
             margin: 0 auto 25px;
             color: white;
             font-size: 2rem;
+            box-shadow: 0 10px 20px rgba(15, 76, 92, 0.2);
         }
 
         .feature-title {
@@ -705,31 +746,46 @@
         }
 
         .feature-description {
-            color: var(--gray);
+            color: var(--text-light);
             line-height: 1.6;
         }
 
         /* ==================== CTA SECTION ==================== */
         .cta-section {
-            padding: 100px 0;
+            padding: 120px 0;
             background: var(--gradient);
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="40" stroke="white" stroke-width="0.5" opacity="0.1"/></svg>');
+            z-index: 0;
         }
 
         .cta-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-title {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
             font-weight: 800;
         }
 
         .cta-description {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 40px;
             opacity: 0.9;
         }
@@ -745,6 +801,7 @@
             background: white;
             color: var(--primary);
             border: none;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
         }
 
         .btn-cta:hover {
@@ -761,7 +818,7 @@
         }
 
         .section-title {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
             text-align: center;
             margin-bottom: 20px;
@@ -769,11 +826,23 @@
             color: var(--primary);
         }
 
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
         .section-subtitle {
             text-align: center;
-            font-size: 1.1rem;
-            color: var(--gray);
-            margin-bottom: 60px;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 80px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
@@ -781,7 +850,7 @@
 
         /* ==================== ABOUT SECTION ==================== */
         .about {
-            background: var(--cream);
+            background: linear-gradient(135deg, var(--cream) 0%, var(--light) 100%);
         }
 
         .about-content {
@@ -801,7 +870,7 @@
         .about-text p {
             font-size: 1.1rem;
             margin-bottom: 20px;
-            color: var(--gray);
+            color: var(--text-light);
             line-height: 1.8;
         }
 
@@ -809,7 +878,7 @@
             position: relative;
             overflow: hidden;
             border-radius: 20px;
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-xl);
         }
 
         .about-image::before {
@@ -854,7 +923,7 @@
 
         .stat:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-xl);
         }
 
         .stat-number {
@@ -868,37 +937,57 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--gray);
+            color: var(--text-light);
         }
 
         /* ==================== PROCESS SECTION ==================== */
         .process {
-            background: var(--light);
+            background: linear-gradient(135deg, var(--light) 0%, var(--cream) 100%);
+            position: relative;
+        }
+
+        .process::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,50 L50,0 L100,50 L50,100 Z" stroke="%230f4c5c" stroke-width="0.5" opacity="0.1"/></svg>');
+            z-index: 0;
+        }
+
+        .process-container {
+            position: relative;
+            z-index: 1;
         }
 
         .process-timeline {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
             margin-top: 80px;
             position: relative;
-            flex-wrap: wrap;
             gap: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .process-timeline::before {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            height: 2px;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
             background: var(--gradient);
             z-index: 0;
+            transform: translateX(-50%);
         }
 
         .process-step {
-            flex: 1;
-            min-width: 200px;
+            width: 100%;
             text-align: center;
             position: relative;
             z-index: 1;
@@ -907,11 +996,14 @@
             border-radius: 15px;
             box-shadow: var(--shadow-md);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .process-step:hover {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-xl);
         }
 
         .step-number {
@@ -927,6 +1019,7 @@
             color: white;
             margin: 0 auto 20px;
             position: relative;
+            box-shadow: 0 10px 20px rgba(15, 76, 92, 0.2);
         }
 
         .step-number::after {
@@ -958,12 +1051,12 @@
 
         .step-description {
             font-size: 0.9rem;
-            color: var(--gray);
+            color: var(--text-light);
         }
 
         .step-image {
-            width: 120px;
-            height: 120px;
+            width: 200px;
+            height: 200px;
             margin: 15px auto 0;
             border-radius: 50%;
             overflow: hidden;
@@ -982,9 +1075,39 @@
             transform: scale(1.1);
         }
 
+        .process-arrow {
+            color: var(--primary);
+            font-size: 2rem;
+            margin: 10px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-5px); }
+            60% { transform: translateY(-2px); }
+        }
+
         /* ==================== PRODUCTS SECTION ==================== */
         .products {
-            background: var(--beige);
+            background: linear-gradient(135deg, var(--cream) 0%, var(--light) 100%);
+            position: relative;
+        }
+
+        .products::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><circle cx="20" cy="20" r="10" stroke="%230f4c5c" stroke-width="0.5" opacity="0.1"/><circle cx="80" cy="80" r="10" stroke="%230f4c5c" stroke-width="0.5" opacity="0.1"/></svg>');
+            z-index: 0;
+        }
+
+        .products-container {
+            position: relative;
+            z-index: 1;
         }
 
         .products-grid {
@@ -1021,7 +1144,7 @@
 
         .product-card:hover {
             transform: translateY(-15px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-xl);
         }
 
         .product-image {
@@ -1041,6 +1164,7 @@
             font-size: 0.8rem;
             font-weight: 600;
             animation: bounce 2s infinite;
+            box-shadow: 0 4px 10px rgba(255, 152, 0, 0.3);
         }
 
         @keyframes bounce {
@@ -1072,7 +1196,7 @@
         }
 
         .product-description {
-            color: var(--gray);
+            color: var(--text-light);
             margin-bottom: 20px;
         }
 
@@ -1095,40 +1219,61 @@
 
         /* ==================== GALLERY SECTION ==================== */
         .gallery {
-            background: var(--cream);
+            background: linear-gradient(135deg, var(--light) 0%, var(--cream) 100%);
+            position: relative;
+        }
+
+        .gallery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,0 L100,100 L0,100 Z" stroke="%230f4c5c" stroke-width="0.5" opacity="0.1"/></svg>');
+            z-index: 0;
+        }
+
+        .gallery-container {
+            position: relative;
+            z-index: 1;
         }
 
         .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
             margin-top: 80px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .gallery-item {
             position: relative;
             overflow: hidden;
-            height: 300px;
-            border-radius: 15px;
+            height: 500px;
+            border-radius: 20px;
             cursor: pointer;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
+            box-shadow: var(--shadow-xl);
+            transition: all 0.5s ease;
+            transform-origin: center;
         }
 
         .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-lg);
+            transform: scale(1.02);
+            box-shadow: 0 25px 50px rgba(15, 76, 92, 0.25);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.8s ease;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .gallery-overlay {
@@ -1137,12 +1282,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, transparent, rgba(30, 58, 95, 0.8));
+            background: linear-gradient(to bottom, transparent 0%, rgba(15, 76, 92, 0.4) 50%, rgba(15, 76, 92, 0.9) 100%);
             display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
             align-items: center;
-            justify-content: center;
+            padding: 40px;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.5s ease;
         }
 
         .gallery-item:hover .gallery-overlay {
@@ -1150,15 +1297,64 @@
         }
 
         .gallery-text {
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-size: 2rem;
+            font-weight: 700;
             text-align: center;
             color: white;
+            margin-bottom: 15px;
+            transform: translateY(20px);
+            transition: transform 0.5s ease 0.1s;
+        }
+
+        .gallery-item:hover .gallery-text {
+            transform: translateY(0);
+        }
+
+        .gallery-description {
+            font-size: 1rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 80%;
+            transform: translateY(20px);
+            transition: transform 0.5s ease 0.2s;
+        }
+
+        .gallery-item:hover .gallery-description {
+            transform: translateY(0);
+        }
+
+        .gallery-icon {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 20px;
+            transform: translateY(20px);
+            transition: transform 0.5s ease 0.3s;
+        }
+
+        .gallery-item:hover .gallery-icon {
+            transform: translateY(0);
         }
 
         /* ==================== CONTACT SECTION ==================== */
         .contact {
-            background: var(--light);
+            background: linear-gradient(135deg, var(--cream) 0%, var(--light) 100%);
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,50 L50,0 L100,50 L50,100 Z" stroke="%230f4c5c" stroke-width="0.5" opacity="0.1"/></svg>');
+            z-index: 0;
+        }
+
+        .contact-container {
+            position: relative;
+            z-index: 1;
         }
 
         .contact-content {
@@ -1208,6 +1404,7 @@
             margin-right: 20px;
             color: white;
             font-size: 1.2rem;
+            box-shadow: 0 10px 20px rgba(15, 76, 92, 0.2);
         }
 
         .contact-text h4 {
@@ -1217,14 +1414,14 @@
         }
 
         .contact-text p {
-            color: var(--gray);
+            color: var(--text-light);
         }
 
         .contact-form {
             background: white;
             padding: 40px;
-            border-shadow: var(--shadow-md);
             border-radius: 20px;
+            box-shadow: var(--shadow-md);
         }
 
         .contact-form h3 {
@@ -1280,19 +1477,37 @@
             cursor: pointer;
             transition: all 0.3s ease;
             border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(15, 76, 92, 0.3);
         }
 
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-xl);
         }
 
         /* ==================== FOOTER ==================== */
         footer {
-            background: var(--primary);
+            background: var(--primary-dark);
             color: white;
             padding: 60px 0 30px;
             text-align: center;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="40" stroke="white" stroke-width="0.5" opacity="0.1"/></svg>');
+            z-index: 0;
+        }
+
+        .footer-container {
+            position: relative;
+            z-index: 1;
         }
 
         .footer-logo {
@@ -1349,7 +1564,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.8rem;
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-xl);
             z-index: 999;
             transition: all 0.3s ease;
             animation: whatsappFloat 3s ease-in-out infinite;
@@ -1378,15 +1593,11 @@
             }
             
             .process-timeline {
-                flex-direction: column;
-                align-items: center;
+                max-width: 100%;
             }
             
-            .process-timeline::before {
-                width: 2px;
-                height: 100%;
-                top: 0;
-                left: 50%;
+            .gallery-item {
+                height: 400px;
             }
         }
 
@@ -1428,9 +1639,16 @@
                 gap: 20px;
             }
             
-            .products-grid,
-            .gallery-grid {
+            .products-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .gallery-item {
+                height: 300px;
+            }
+            
+            .gallery-text {
+                font-size: 1.5rem;
             }
         }
 
@@ -1462,7 +1680,10 @@
 
     <!-- ==================== LOADING SCREEN ==================== -->
     <div class="loading-screen" id="loadingScreen">
-        <div class="loading-logo">Aruna Coir <span>Industries</span></div>
+        <div class="loading-logo-container">
+            <img src="./logo-photoaidcom-cropped.jpg" alt="Aruna Coir Logo" class="loading-logo-img">
+            <div class="loading-logo">Aruna Coir <span>Industries</span></div>
+        </div>
         <div class="loading-bar">
             <div class="loading-progress"></div>
         </div>
@@ -1533,56 +1754,58 @@
 
                 <!-- ==================== FEATURES SECTION ==================== -->
                 <section class="features">
-                    <h2 class="section-title" data-aos="fade-up">Why Choose Aruna Coir?</h2>
-                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Discover what makes us the preferred choice for sustainable coir solutions</p>
-                    
-                    <div class="features-grid">
-                        <div class="feature-card" data-aos="fade-up">
-                            <div class="feature-icon">
-                                <i class="fas fa-leaf"></i>
-                            </div>
-                            <h3 class="feature-title">100% Eco-Friendly</h3>
-                            <p class="feature-description">Our products are completely biodegradable and made from renewable coconut resources, supporting a sustainable future.</p>
-                        </div>
+                    <div class="features-container">
+                        <h2 class="section-title" data-aos="fade-up">Why Choose ACI?</h2>
+                        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Discover what makes us the preferred choice for sustainable coir solutions</p>
                         
-                        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                            <div class="feature-icon">
-                                <i class="fas fa-award"></i>
+                        <div class="features-grid">
+                            <div class="feature-card" data-aos="fade-up">
+                                <div class="feature-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <h3 class="feature-title">100% Eco-Friendly</h3>
+                                <p class="feature-description">Our products are completely biodegradable and made from renewable coconut resources, supporting a sustainable future.</p>
                             </div>
-                            <h3 class="feature-title">Premium Quality</h3>
-                            <p class="feature-description">ISO certified manufacturing process ensures consistent quality that meets international standards and exceeds customer expectations.</p>
-                        </div>
-                        
-                        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                            <div class="feature-icon">
-                                <i class="fas fa-globe"></i>
+                            
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="feature-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <h3 class="feature-title">Premium Quality</h3>
+                                <p class="feature-description">ISO certified manufacturing process ensures consistent quality that meets international standards and exceeds customer expectations.</p>
                             </div>
-                            <h3 class="feature-title">Global Export</h3>
-                            <p class="feature-description">Trusted by customers in 20+ countries worldwide, with reliable shipping and excellent customer support.</p>
-                        </div>
-                        
-                        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                            <div class="feature-icon">
-                                <i class="fas fa-recycle"></i>
+                            
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="feature-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <h3 class="feature-title">Global Export</h3>
+                                <p class="feature-description">Trusted by customers in 7+ countries worldwide, with reliable shipping and excellent customer support.</p>
                             </div>
-                            <h3 class="feature-title">Zero Waste</h3>
-                            <p class="feature-description">We utilize every part of the coconut husk, ensuring zero waste in our production process and maximum value creation.</p>
-                        </div>
-                        
-                        <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
-                            <div class="feature-icon">
-                                <i class="fas fa-flask"></i>
+                            
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="feature-icon">
+                                    <i class="fas fa-recycle"></i>
+                                </div>
+                                <h3 class="feature-title">Zero Waste</h3>
+                                <p class="feature-description">We utilize every part of the coconut husk, ensuring zero waste in our production process and maximum value creation.</p>
                             </div>
-                            <h3 class="feature-title">Innovation Driven</h3>
-                            <p class="feature-description">Continuous R&D to develop innovative coir products that meet evolving market needs and applications.</p>
-                        </div>
-                        
-                        <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
-                            <div class="feature-icon">
-                                <i class="fas fa-handshake"></i>
+                            
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                                <div class="feature-icon">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <h3 class="feature-title">Innovation Driven</h3>
+                                <p class="feature-description">Continuous R&D to develop innovative coir products that meet evolving market needs and applications.</p>
                             </div>
-                            <h3 class="feature-title">Custom Solutions</h3>
-                            <p class="feature-description">Tailored coir solutions to meet specific requirements of agriculture, horticulture, and industrial applications.</p>
+                            
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                                <div class="feature-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h3 class="feature-title">Custom Solutions</h3>
+                                <p class="feature-description">Tailored coir solutions to meet specific requirements of agriculture, horticulture, and industrial applications.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -1619,7 +1842,7 @@
                             
                             <div class="stats" data-aos="fade-up" data-aos-delay="200">
                                 <div class="stat">
-                                    <div class="stat-number" data-count="20">0</div>
+                                    <div class="stat-number" data-count="22">0</div>
                                     <div class="stat-label">Years Experience</div>
                                 </div>
                                 <div class="stat">
@@ -1627,7 +1850,7 @@
                                     <div class="stat-label">Tons Monthly</div>
                                 </div>
                                 <div class="stat">
-                                    <div class="stat-number" data-count="20">0</div>
+                                    <div class="stat-number" data-count="7">0</div>
                                     <div class="stat-label">Countries</div>
                                 </div>
                             </div>
@@ -1642,48 +1865,62 @@
             <!-- ==================== PROCESS PAGE ==================== -->
             <div id="process" class="page">
                 <section>
-                    <h2 class="section-title" data-aos="fade-up">Our Process</h2>
-                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">From coconut to coir - the journey of transformation</p>
-                    
-                    <div class="process-timeline">
-                        <div class="process-step" data-aos="zoom-in">
-                            <div class="step-number">1</div>
-                            <h3 class="step-title">Coconut Tree</h3>
-                            <p class="step-description">Sourcing from sustainable plantations</p>
-                            <div class="step-image">
-                                <img src="./tree.png" alt="Coconut Tree">
+                    <div class="process-container">
+                        <h2 class="section-title" data-aos="fade-up">Our Process</h2>
+                        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">From coconut to coir - the journey of transformation</p>
+                        
+                        <div class="process-timeline">
+                            <div class="process-step" data-aos="zoom-in">
+                                <div class="step-number">1</div>
+                                <h3 class="step-title">Coconut Tree</h3>
+                                <p class="step-description">Sourcing from sustainable plantations</p>
+                                <div class="step-image">
+                                    <img src="./tree.png" alt="Coconut Tree">
+                                </div>
                             </div>
-                        </div>
-                        <div class="process-step" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="step-number">2</div>
-                            <h3 class="step-title">coconuts</h3>
-                            <p class="step-description">Selecting mature, quality coconuts</p>
-                            <div class="step-image">
-                                <img src="./coconut.png" alt="Coconut">
+                            <div class="process-arrow">
+                                <i class="fas fa-chevron-down"></i>
                             </div>
-                        </div>
-                        <div class="process-step" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="step-number">3</div>
-                            <h3 class="step-title">Husk</h3>
-                            <p class="step-description">Extracting the fibrous outer layer</p>
-                            <div class="step-image">
-                                <img src="./husk.png" alt="Husk">
+                            <div class="process-step" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="step-number">2</div>
+                                <h3 class="step-title">coconuts</h3>
+                                <p class="step-description">Selecting mature, quality coconuts</p>
+                                <div class="step-image">
+                                    <img src="./coconut.png" alt="Coconut">
+                                </div>
                             </div>
-                        </div>
-                        <div class="process-step" data-aos="zoom-in" data-aos-delay="300">
-                            <div class="step-number">4</div>
-                            <h3 class="step-title">Coconut Fiber</h3>
-                            <p class="step-description">Processing into premium quality fibers</p>
-                            <div class="step-image">
-                                <img src="./fibre.png" alt="Coconut Fiber">
+                            <div class="process-arrow">
+                                <i class="fas fa-chevron-down"></i>
                             </div>
-                        </div>
-                        <div class="process-step" data-aos="zoom-in" data-aos-delay="400">
-                            <div class="step-number">5</div>
-                            <h3 class="step-title">Coco Peat</h3>
-                            <p class="step-description">Creating nutrient-rich growing medium</p>
-                            <div class="step-image">
-                                <img src="./peat.png" alt="Coco Peat">
+                            <div class="process-step" data-aos="zoom-in" data-aos-delay="200">
+                                <div class="step-number">3</div>
+                                <h3 class="step-title">Husk</h3>
+                                <p class="step-description">Extracting the fibrous outer layer</p>
+                                <div class="step-image">
+                                    <img src="./husk.png" alt="Husk">
+                                </div>
+                            </div>
+                            <div class="process-arrow">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="process-step" data-aos="zoom-in" data-aos-delay="300">
+                                <div class="step-number">4</div>
+                                <h3 class="step-title">Coconut Fiber</h3>
+                                <p class="step-description">Processing into premium quality fibers</p>
+                                <div class="step-image">
+                                    <img src="./fibre.png" alt="Coconut Fiber">
+                                </div>
+                            </div>
+                            <div class="process-arrow">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="process-step" data-aos="zoom-in" data-aos-delay="400">
+                                <div class="step-number">5</div>
+                                <h3 class="step-title">Coco Peat</h3>
+                                <p class="step-description">Creating nutrient-rich growing medium</p>
+                                <div class="step-image">
+                                    <img src="./peat.png" alt="Coco Peat">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1693,53 +1930,55 @@
             <!-- ==================== PRODUCTS PAGE ==================== -->
             <div id="products" class="page">
                 <section>
-                    <h2 class="section-title" data-aos="fade-up">Our Products</h2>
-                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Premium coir solutions for every need</p>
-                    
-                    <div class="products-grid">
-                        <div class="product-card" data-aos="fade-up">
-                            <div class="product-image">
-                                <span class="product-badge">Best Seller</span>
-                                <img src="./gallery7.webp" alt="Coir Mats">
-                            </div>
-                            <div class="product-info">
-                                <h3 class="product-title">Vermi Compost</h3>
-                                <p class="product-description">Durable and eco-friendly entrance mats with natural beauty and excellent durability.</p>
-                                <a href="#contact" class="product-link" onclick="navigateTo('contact')">Enquire Now <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
+                    <div class="products-container">
+                        <h2 class="section-title" data-aos="fade-up">Our Products</h2>
+                        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Premium products for every need</p>
                         
-                        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-                            <div class="product-image">
-                                <span class="product-badge">Popular</span>
-                                <img src="./gallery9.jpg" alt="Coco Peat">
+                        <div class="products-grid">
+                            <div class="product-card" data-aos="fade-up">
+                                <div class="product-image">
+                                    <span class="product-badge">Best Seller</span>
+                                    <img src="./gallery7.webp" alt="Coir Mats">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Vermi Compost</h3>
+                                    <p class="product-description">Durable and eco-friendly entrance mats with natural beauty and excellent durability.</p>
+                                    <a href="#contact" class="product-link" onclick="navigateTo('contact')">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                                </div>
                             </div>
-                            <div class="product-info">
-                                <h3 class="product-title">Coco Peat</h3>
-                                <p class="product-description">Premium growing medium with optimal water retention and nutrient content for plants.</p>
-                                <a href="#contact" class="product-link" onclick="navigateTo('contact')">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                            
+                            <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="product-image">
+                                    <span class="product-badge">Popular</span>
+                                    <img src="./gallery9.jpg" alt="Coco Peat">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Coco Peat</h3>
+                                    <p class="product-description">Premium growing medium with optimal water retention and nutrient content for plants.</p>
+                                    <a href="#contact" class="product-link" onclick="navigateTo('contact')">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-                            <div class="product-image">
-                                <img src="./products fibre.jpg" alt="Coir Fiber">
+                            
+                            <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="product-image">
+                                    <img src="./products fibre.jpg" alt="Coir Fiber">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Coir Fiber</h3>
+                                    <p class="product-description">Strong, golden fibers of exceptional strength and durability for various applications.</p>
+                                    <a href="#contact" class="product-link" onclick="navigateTo('contact')">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                                </div>
                             </div>
-                            <div class="product-info">
-                                <h3 class="product-title">Coir Fiber</h3>
-                                <p class="product-description">Strong, golden fibers of exceptional strength and durability for various applications.</p>
-                                <a href="#contact" class="product-link" onclick="navigateTo('contact')">Enquire Now <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        
-                        <div class="product-card" data-aos="fade-up" data-aos-delay="300">
-                            <div class="product-image">
-                                <img src="https://picsum.photos/seed/coir-geo-textiles/400/300.jpg" alt="Coir Geo Textiles">
-                            </div>
-                            <div class="product-info">
-                                <h3 class="product-title">Geo Textiles</h3>
-                                <p class="product-description">Eco-friendly erosion control solutions for sustainable landscaping projects.</p>
-                                <a href="#contact" class="product-link" onclick="navigateTo('contact')">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                            
+                            <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="product-image">
+                                    <img src="https://picsum.photos/seed/coir-geo-textiles/400/300.jpg" alt="Coir Geo Textiles">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Geo Textiles</h3>
+                                    <p class="product-description">Eco-friendly erosion control solutions for sustainable landscaping projects.</p>
+                                    <a href="#contact" class="product-link" onclick="navigateTo('contact')">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1749,44 +1988,106 @@
             <!-- ==================== GALLERY PAGE ==================== -->
             <div id="gallery" class="page">
                 <section>
-                    <h2 class="section-title" data-aos="fade-up">Gallery</h2>
-                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Our facility and products in action</p>
-                    
-                    <div class="gallery-grid">
-                        <div class="gallery-item" data-aos="zoom-in">
-                            <img src="./gallery1.webp" alt="Factory View">
-                            <div class="gallery-overlay">
-                                <div class="gallery-text">Loading</div>
+                    <div class="gallery-container">
+                        <h2 class="section-title" data-aos="fade-up">Gallery</h2>
+                        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Our facility and products in action</p>
+                        
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-aos="zoom-in">
+                                <img src="./gallery10.jpg" alt="Factory View">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-industry"></i></div>
+                                    <div class="gallery-text">Coir Machinery</div>
+                                    <div class="gallery-description">Our state-of-the-art manufacturing facility with advanced processing equipment</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                            <img src="./gallery7.webp" alt="Production Line">
-                            <div class="gallery-overlay">
-                                <div class="gallery-text">Vermi Compost</div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                                <img src="./gallery7.webp" alt="Production Line">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-seedling"></i></div>
+                                    <div class="gallery-text">Vermi Compost</div>
+                                    <div class="gallery-description">Premium organic vermi compost produced using natural processes</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
-                            <img src="./gallery3.webp" alt="Quality Testing">
-                            <div class="gallery-overlay">
-                                <div class="gallery-text">Bale Packaging</div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                                <img src="./gallery3.webp" alt="Quality Testing">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-box"></i></div>
+                                    <div class="gallery-text">Bale Packaging</div>
+                                    <div class="gallery-description">Carefully packaged coir products ready for shipment</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
-                            <img src="./gallery4.webp" alt="Packaging">
-                            <div class="gallery-overlay">
-                                <div class="gallery-text">Coir export</div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                                <img src="./gallery4.webp" alt="Packaging">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-shipping-fast"></i></div>
+                                    <div class="gallery-text">Coir Export</div>
+                                    <div class="gallery-description">Our products being prepared for international export</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
-                            <img src="./gallery5.webp" alt="Warehouse">
-                            <div class="gallery-overlay">
-                                <div class="gallery-text">Storage Facility</div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                                <img src="./gallery6.jpg" alt="Warehouse">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-warehouse"></i></div>
+                                    <div class="gallery-text">Tracters</div>
+                                    <div class="gallery-description">Spacious warehouse for storing finished products</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
-                            <img src="./gallery8.jpg" alt="Shipping">
-                            <div class="gallery-overlay">
-                                <div class="gallery-text">Vehicles</div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
+                                <img src="./gallery8.jpg" alt="Shipping">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-truck"></i></div>
+                                    <div class="gallery-text">JCB Bull Loader</div>
+                                    <div class="gallery-description">Our logistics fleet for timely delivery</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="600">
+                                <img src="./gallery9.jpg" alt="Production">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-cogs"></i></div>
+                                    <div class="gallery-text">Coco Peat Production</div>
+                                    <div class="gallery-description">Advanced machinery for processing high-quality coco peat</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="700">
+                                <img src="./gallery1.webp" alt="Factory">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-users"></i></div>
+                                    <div class="gallery-text">Bale Loading</div>
+                                    <div class="gallery-description">Our skilled workforce ensuring quality production</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="800">
+                                <img src="./gallery3.webp" alt="Packaging">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-certificate"></i></div>
+                                    <div class="gallery-text">Product Packaging</div>
+                                    <div class="gallery-description">Quality packaging to preserve product integrity</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="900">
+                                <img src="./gallery12.jpg" alt="Quality Control">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-check-double"></i></div>
+                                    <div class="gallery-text">Loading Stage</div>
+                                    <div class="gallery-description">Rigorous quality checks at every production stage</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="1000">
+                                <img src="./gallery11.jpg" alt="Raw Materials">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-leaf"></i></div>
+                                    <div class="gallery-text">Raw Materials</div>
+                                    <div class="gallery-description">Premium quality coconut husks sourced from sustainable farms</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="1100">
+                                <img src="./gallery9.jpg" alt="Finished Products">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-palette"></i></div>
+                                    <div class="gallery-text">Finished Products</div>
+                                    <div class="gallery-description">Wide range of coir products ready for global markets</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1796,62 +2097,64 @@
             <!-- ==================== CONTACT PAGE ==================== -->
             <div id="contact" class="page">
                 <section>
-                    <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
-                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">We'd love to hear from you</p>
-                    
-                    <div class="contact-content">
-                        <div class="contact-info" data-aos="fade-right">
-                            <h3>Contact Information</h3>
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h4>Address</h4>
-                                    <p>Aruna Coir Industries<br>Eluru, Andhra Pradesh<br>Pin: 534449, India</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h4>Phone</h4>
-                                    <p>+91 9110372312</p>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h4>Email</h4>
-                                    <p>info@arunacoir.com<br>export@arunacoir.com</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="contact-container">
+                        <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+                        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">We'd love to hear from you</p>
                         
-                        <div class="contact-form" data-aos="fade-left">
-                            <h3>Send Message</h3>
-                            <form id="contactForm">
-                                <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text" name="name" required>
+                        <div class="contact-content">
+                            <div class="contact-info" data-aos="fade-right">
+                                <h3>Contact Information</h3>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h4>Address</h4>
+                                        <p>Aruna Coir Industries<br>Eluru, Andhra Pradesh<br>Pin: 534449, India</p>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" name="email" required>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h4>Phone</h4>
+                                        <p>+91 9110372312</p>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>Phone</label>
-                                    <input type="tel" name="phone">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h4>Email</h4>
+                                        <p>info@arunacoir.com<br>export@arunacoir.com</p>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>Message</label>
-                                    <textarea name="message" required></textarea>
-                                </div>
-                                <button type="submit" class="submit-btn">Send Message</button>
-                            </form>
+                            </div>
+                            
+                            <div class="contact-form" data-aos="fade-left">
+                                <h3>Send Message</h3>
+                                <form id="contactForm">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" name="name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" name="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Phone</label>
+                                        <input type="tel" name="phone">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Message</label>
+                                        <textarea name="message" required></textarea>
+                                    </div>
+                                    <button type="submit" class="submit-btn">Send Message</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -1862,15 +2165,17 @@
 
     <!-- ==================== FOOTER ==================== -->
     <footer>
-        <div class="container">
-            <div class="footer-logo">Aruna Coir <span>Industries</span></div>
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        <div class="footer-container">
+            <div class="container">
+                <div class="footer-logo">Aruna Coir <span>Industries</span></div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="copyright">&copy; 2025 Aruna Coir Industries. All Rights Reserved.</p>
             </div>
-            <p class="copyright">&copy; 2025 Aruna Coir Industries. All Rights Reserved.</p>
         </div>
     </footer>
 
