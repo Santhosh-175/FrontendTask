@@ -1,0 +1,2554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Aruna Coir Industries - Premium coir manufacturer in Eluru, AP. Export-quality coco peat, coir mats, fiber, and geo-textiles."/>
+    <meta name="keywords" content="coir manufacturers AP, coco peat export, coir mats wholesale, Aruna Coir Industries, eco-friendly coir"/>
+    <meta name="author" content="Aruna Coir Industries"/>
+    <meta name="theme-color" content="#2e7d32">
+
+    <!-- Title -->
+    <title>Aruna Coir Industries</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./logo-photoaidcom-cropped.jpg" type="image/x-icon"/>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Merriweather:wght@300;400;700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --secondary: #8d6e63;
+            --accent: #ff6f00;
+            --accent-light: #ffa726;
+            --light: #f1f8e9;
+            --white: #ffffff;
+            --cream: #f5f5f5;
+            --beige: #efebe9;
+            --sage: #81c784;
+            --terracotta: #d84315;
+            --gold: #ffc107;
+            --success: #2e7d32;
+            --warning: #ff6f00;
+            --gradient: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+            --gradient-warm: linear-gradient(135deg, #ff6f00 0%, #ffa726 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(46, 125, 50, 0.9) 0%, rgba(76, 175, 80, 0.85) 100%);
+            --shadow-sm: 0 5px 15px rgba(0,0,0,0.08);
+            --shadow-md: 0 10px 30px rgba(0,0,0,0.12);
+            --shadow-lg: 0 20px 40px rgba(46, 125, 50, 0.15);
+            --shadow-xl: 0 25px 50px rgba(46, 125, 50, 0.2);
+            --gray: #546e7a;
+            --text-light: #78909c;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        h1, h2, h3, h4, h5, h6 { 
+            font-family: 'Merriweather', serif; 
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        a { 
+            text-decoration: none; 
+            color: inherit; 
+            transition: all 0.3s ease;
+        }
+
+        img { 
+            display: block; 
+            max-width: 100%; 
+            height: auto; 
+        }
+
+        .container { 
+            width: 90%; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+        }
+
+        /* ==================== CUSTOM CURSOR ==================== */
+        .custom-cursor {
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary);
+        }
+
+        .cursor-follower {
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.15s ease;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 111, 0, 0.05);
+        }
+
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9997;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor-grow {
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
+        }
+
+        .cursor-follower-grow {
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--accent);
+            background: rgba(255, 111, 0, 0.1);
+        }
+
+        .cursor-text {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9996;
+            background: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            transform: translate(-50%, -120%);
+        }
+
+        .cursor-text.show {
+            opacity: 1;
+        }
+
+        /* ==================== LOADING SCREEN ==================== */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--light) 0%, var(--cream) 100%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .loading-logo-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-xl);
+            animation: float 3s ease-in-out infinite;
+            border: 4px solid var(--primary);
+        }
+
+        .loading-logo {
+            font-size: 3rem;
+            font-weight: 900;
+            font-family: 'Merriweather', serif;
+            color: var(--primary);
+            letter-spacing: 2px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .loading-logo span {
+            color: var(--accent);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .loading-bar {
+            width: 200px;
+            height: 4px;
+            background: var(--beige);
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: var(--gradient);
+            width: 0;
+            animation: loading 2s ease-in-out forwards;
+        }
+
+        @keyframes loading {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        /* ==================== PAGE LOADER ==================== */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--light) 0%, var(--cream) 100%);
+            z-index: 9998;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .page-loader.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .page-loader-content {
+            text-align: center;
+        }
+
+        .page-loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--beige);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-md);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            font-family: 'Merriweather', serif;
+            color: var(--primary);
+            letter-spacing: 1px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 70px;
+            height: 70px;
+            background: transparent;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid var(--primary);
+        }
+
+        .logo-icon img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            padding: 5px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-light);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: var(--gradient);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* ==================== MAIN CONTENT ==================== */
+        main {
+            padding-top: 80px;
+            min-height: calc(100vh - 80px);
+        }
+
+        .page {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: url() center/cover no-repeat;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-hero);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            animation: slideInLeft 1s ease;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            animation: slideInUp 1s ease 0.2s both;
+        }
+
+        .hero-title span {
+            color: var(--accent);
+            position: relative;
+        }
+
+        .hero-title span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-warm);
+            animation: underlineGrow 1s ease 0.5s both;
+        }
+
+        @keyframes underlineGrow {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            animation: slideInRight 1s ease 0.4s both;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            animation: fadeIn 1s ease 0.6s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--gradient-warm);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(255, 111, 0, 0.3);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 111, 0, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-coconut {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-coconut:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-coconut:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-coconut:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(0px) rotate(-5deg); }
+            75% { transform: translateY(-10px) rotate(3deg); }
+        }
+
+        .floating-leaf {
+            position: absolute;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.2);
+            animation: floatLeaf 8s ease-in-out infinite;
+        }
+
+        .floating-leaf:nth-child(1) {
+            top: 15%;
+            right: 10%;
+            animation-delay: 1s;
+        }
+
+        .floating-leaf:nth-child(2) {
+            bottom: 20%;
+            right: 25%;
+            animation-delay: 3s;
+        }
+
+        .floating-leaf:nth-child(3) {
+            top: 40%;
+            left: 5%;
+            animation-delay: 5s;
+        }
+
+        @keyframes floatLeaf {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(10deg); }
+            66% { transform: translateY(-5px) rotate(-10deg); }
+        }
+
+        /* ==================== FEATURES SECTION ==================== */
+        .features {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--light) 0%, var(--cream) 100%);
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%232e7d32" stroke-width="0.5" opacity="0.1"/></svg>');
+            z-index: 0;
+        }
+
+        .features-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 10px 20px rgba(46, 125, 50, 0.2);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .feature-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ==================== CTA SECTION ==================== */
+        .cta-section {
+            padding: 120px 0;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="40" stroke="white" stroke-width="0.5" opacity="0.1"/></svg>');
+            z-index: 0;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .cta-description {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-cta {
+            background: white;
+            color: var(--primary);
+            border: none;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-cta:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ==================== SECTIONS ==================== */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            color: var(--primary);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 80px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ==================== ABOUT SECTION ==================== */
+        .about {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--light) 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .about-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: var(--gradient);
+            border-radius: 30px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            gap: 30px;
+        }
+
+        .stat {
+            flex: 1;
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+        }
+
+        /* ==================== PROCESS SECTION ==================== */
+        .process {
+            background: linear-gradient(135deg, var(--light) 0%, var(--cream) 100%);
+            position: relative;
+        }
+
+        .process::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,50 L50,0 L100,50 L50,100 Z" stroke="%232e7d32" stroke-width="0.5" opacity="0.1"/></svg>');
+            z-index: 0;
+        }
+
+        .process-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-timeline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 80px;
+            position: relative;
+            gap: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: var(--gradient);
+            z-index: 0;
+            transform: translateX(-50%);
+        }
+
+        .process-step {
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .process-step:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 20px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(46, 125, 50, 0.2);
+        }
+
+        .step-number::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: var(--gradient);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.3;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.1; }
+            100% { transform: scale(1); opacity: 0.3; }
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .step-description {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .step-image {
+            width: 200px;
+            height: 200px;
+            margin: 15px auto 0;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent);
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .process-step:hover .step-image img {
+            transform: scale(1.1);
+        }
+
+        .process-arrow {
+            color: var(--primary);
+            font-size: 2rem;
+            margin: 10px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-5px); }
+            60% { transform: translateY(-2px); }
+        }
+
+        /* ==================== PRODUCTS SECTION ==================== */
+        .products {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--light) 100%);
+            position: relative;
+        }
+
+        .products::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><circle cx="20" cy="20" r="10" stroke="%232e7d32" stroke-width="0.5" opacity="0.1"/><circle cx="80" cy="80" r="10" stroke="%232e7d32" stroke-width="0.5" opacity="0.1"/></svg>');
+            z-index: 0;
+        }
+
+        .products-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            animation: bounce 2s infinite;
+            box-shadow: 0 4px 10px rgba(255, 111, 0, 0.3);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-5px); }
+            60% { transform: translateY(-2px); }
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 30px;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .product-description {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .product-link {
+            color: var(--primary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .product-link:hover {
+            gap: 10px;
+            color: var(--primary-light);
+        }
+
+        /* ==================== GALLERY SECTION ==================== */
+        .gallery {
+            background: linear-gradient(135deg, var(--light) 0%, var(--cream) 100%);
+            position: relative;
+        }
+
+        .gallery::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,0 L100,100 L0,100 Z" stroke="%232e7d32" stroke-width="0.5" opacity="0.1"/></svg>');
+            z-index: 0;
+        }
+
+        .gallery-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 80px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            height: 500px;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: var(--shadow-xl);
+            transition: all 0.5s ease;
+            transform-origin: center;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 50px rgba(46, 125, 50, 0.25);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(46, 125, 50, 0.4) 50%, rgba(46, 125, 50, 0.9) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 40px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-text {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            color: white;
+            margin-bottom: 15px;
+            transform: translateY(20px);
+            transition: transform 0.5s ease 0.1s;
+        }
+
+        .gallery-item:hover .gallery-text {
+            transform: translateY(0);
+        }
+
+        .gallery-description {
+            font-size: 1rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 80%;
+            transform: translateY(20px);
+            transition: transform 0.5s ease 0.2s;
+        }
+
+        .gallery-item:hover .gallery-description {
+            transform: translateY(0);
+        }
+
+        .gallery-icon {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 20px;
+            transform: translateY(20px);
+            transition: transform 0.5s ease 0.3s;
+        }
+
+        .gallery-item:hover .gallery-icon {
+            transform: translateY(0);
+        }
+
+        /* ==================== CONTACT SECTION ==================== */
+        .contact {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--light) 100%);
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,50 L50,0 L100,50 L50,100 Z" stroke="%232e7d32" stroke-width="0.5" opacity="0.1"/></svg>');
+            z-index: 0;
+        }
+
+        .contact-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-top: 80px;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--cream);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 20px rgba(46, 125, 50, 0.2);
+        }
+
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .contact-text p {
+            color: var(--text-light);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-form h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: var(--cream);
+            border: 2px solid var(--beige);
+            border-radius: 10px;
+            color: var(--primary);
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="40" stroke="white" stroke-width="0.5" opacity="0.1"/></svg>');
+            z-index: 0;
+        }
+
+        .footer-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 900;
+            font-family: 'Merriweather', serif;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ==================== WHATSAPP FLOAT ==================== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: var(--shadow-xl);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: whatsappFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes whatsappFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .process-timeline {
+                max-width: 100%;
+            }
+            
+            .gallery-item {
+                height: 700px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow-lg);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero {
+                padding: 100px 0;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-item {
+                height: 300px;
+            }
+            
+            .gallery-text {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ==================== CURSOR HIDE ON TOUCH DEVICES ==================== */
+        @media (hover: hover) and (pointer: fine) {
+            .custom-cursor,
+            .cursor-follower,
+            .cursor-dot {
+                display: block;
+            }
+        }
+
+        @media (pointer: coarse) {
+            .custom-cursor,
+            .cursor-follower,
+            .cursor-dot {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== CUSTOM CURSOR ==================== -->
+    <div class="custom-cursor">🌴</div>
+    <div class="cursor-follower"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-text"></div>
+
+    <!-- ==================== LOADING SCREEN ==================== -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-logo-container">
+            <img src="./logo-photoaidcom-cropped.jpg" alt="Aruna Coir Logo" class="loading-logo-img">
+            <div class="loading-logo">Aruna Coir <span>Industries</span></div>
+        </div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
+
+    <!-- ==================== PAGE LOADER ==================== -->
+    <div class="page-loader" id="pageLoader">
+        <div class="page-loader-content">
+            <div class="page-loader-spinner"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo" onclick="navigateTo('home')">
+                    <div class="logo-icon">
+                        <img src="./logo-photoaidcom-cropped.jpg" alt="Aruna Coir Logo">
+                    </div>
+                    Aruna Coir <span>Industries</span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                    <li><a href="#" class="nav-link" data-page="process">Process</a></li>
+                    <li><a href="#" class="nav-link" data-page="products">Products</a></li>
+                    <li><a href="#" class="nav-link" data-page="gallery">Gallery</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact Us</a></li>
+                </ul>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main>
+        <div class="container">
+            
+            <!-- ==================== HOME PAGE ==================== -->
+            <div id="home" class="page active">
+                <section class="hero">
+                    <div class="floating-elements">
+                        <div class="floating-coconut"><i class="fas fa-circle"></i></div>
+                        <div class="floating-leaf"><i class="fas fa-leaf"></i></div>
+                        <div class="floating-coconut"><i class="fas fa-circle"></i></div>
+                        <div class="floating-leaf"><i class="fas fa-leaf"></i></div>
+                        <div class="floating-coconut"><i class="fas fa-circle"></i></div>
+                        <div class="floating-leaf"><i class="fas fa-leaf"></i></div>
+                    </div>
+                    <div class="hero-content">
+                        <div class="hero-subtitle">Crafting Excellence Since 2003</div>
+                        <h1 class="hero-title">Nature's Gift, <span>Our Craft</span></h1>
+                        <p class="hero-description">Transforming coconut husks into premium coir solutions that nurture life and protect our planet. Experience the perfect blend of nature and innovation.</p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary" onclick="navigateTo('products')">
+                                <i class="fas fa-shopping-cart"></i> Explore Products
+                            </button>
+                            <button class="btn btn-outline" onclick="navigateTo('contact')">
+                                <i class="fas fa-phone"></i> Contact Us
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== FEATURES SECTION ==================== -->
+                <section class="features">
+                    <div class="features-container">
+                        <h2 class="section-title" data-aos="fade-up">Why Choose ACI?</h2>
+                        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Discover what makes us the preferred choice for sustainable coir solutions</p>
+                        
+                        <div class="features-grid">
+                            <div class="feature-card" data-aos="fade-up">
+                                <div class="feature-icon">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <h3 class="feature-title">100% Eco-Friendly</h3>
+                                <p class="feature-description">Our products are completely biodegradable and made from renewable coconut resources, supporting a sustainable future.</p>
+                            </div>
+                            
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="feature-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <h3 class="feature-title">Premium Quality</h3>
+                                <p class="feature-description">ISO certified manufacturing process ensures consistent quality that meets international standards and exceeds customer expectations.</p>
+                            </div>
+                            
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="feature-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <h3 class="feature-title">Global Export</h3>
+                                <p class="feature-description">Trusted by customers in 7+ countries worldwide, with reliable shipping and excellent customer support.</p>
+                            </div>
+                            
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="feature-icon">
+                                    <i class="fas fa-recycle"></i>
+                                </div>
+                                <h3 class="feature-title">Zero Waste</h3>
+                                <p class="feature-description">We utilize every part of the coconut husk, ensuring zero waste in our production process and maximum value creation.</p>
+                            </div>
+                            
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                                <div class="feature-icon">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <h3 class="feature-title">Innovation Driven</h3>
+                                <p class="feature-description">Continuous R&D to develop innovative coir products that meet evolving market needs and applications.</p>
+                            </div>
+                            
+                            <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                                <div class="feature-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <h3 class="feature-title">Custom Solutions</h3>
+                                <p class="feature-description">Tailored coir solutions to meet specific requirements of agriculture, horticulture, and industrial applications.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== CTA SECTION ==================== -->
+                <section class="cta-section">
+                    <div class="cta-content" data-aos="zoom-in">
+                        <h2 class="cta-title">Ready to Go Green?</h2>
+                        <p class="cta-description">Join hundreds of satisfied customers who have made the switch to sustainable coir solutions</p>
+                        <div class="cta-buttons">
+                            <button class="btn btn-cta" onclick="navigateTo('contact')">
+                                <i class="fas fa-comments"></i> Get Free Quote
+                            </button>
+                            <button class="btn btn-outline" onclick="navigateTo('products')">
+                                <i class="fas fa-download"></i> Download Catalog
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ==================== ABOUT PAGE ==================== -->
+            <div id="about" class="page">
+                <section>
+                    <h2 class="section-title" data-aos="fade-up">Our Story</h2>
+                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Two decades of sustainable excellence</p>
+                    
+                    <div class="about-content">
+                        <div class="about-text" data-aos="fade-right">
+                            <h3>From Nature to Nurture</h3>
+                            <p>Since 2003, Aruna Coir Industries has been pioneering sustainable coir solutions, turning agricultural waste into valuable products that benefit farmers, gardeners, and the environment.</p>
+                            <p>Located in Eluru, Andhra Pradesh, our eco-friendly facility processes over 300 tons of coconut husk monthly, creating premium coir products that serve markets across India and internationally.</p>
+                            <p>We believe in the power of nature and the importance of sustainable practices. Every product we create is a testament to our commitment to environmental stewardship and quality craftsmanship.</p>
+                            
+                            <div class="stats" data-aos="fade-up" data-aos-delay="200">
+                                <div class="stat">
+                                    <div class="stat-number" data-count="22">0</div>
+                                    <div class="stat-label">Years Experience</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-number" data-count="300">0</div>
+                                    <div class="stat-label">Tons Monthly</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-number" data-count="7">0</div>
+                                    <div class="stat-label">Countries</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-image" data-aos="fade-left">
+                            <img src="./wall.jpg" alt="Aruna Coir Factory">
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ==================== PROCESS PAGE ==================== -->
+            <div id="process" class="page">
+                <section>
+                    <div class="process-container">
+                        <h2 class="section-title" data-aos="fade-up">Our Process</h2>
+                        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">From coconut to coir - the journey of transformation</p>
+                        
+                        <div class="process-timeline">
+                            <div class="process-step" data-aos="zoom-in">
+                                <div class="step-number">1</div>
+                                <h3 class="step-title">Coconut Tree</h3>
+                                <p class="step-description">Sourcing from sustainable plantations</p>
+                                <div class="step-image">
+                                    <img src="./tree.png" alt="Coconut Tree">
+                                </div>
+                            </div>
+                            <div class="process-arrow">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="process-step" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="step-number">2</div>
+                                <h3 class="step-title">coconuts</h3>
+                                <p class="step-description">Selecting mature, quality coconuts</p>
+                                <div class="step-image">
+                                    <img src="./coconut.png" alt="Coconut">
+                                </div>
+                            </div>
+                            <div class="process-arrow">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="process-step" data-aos="zoom-in" data-aos-delay="200">
+                                <div class="step-number">3</div>
+                                <h3 class="step-title">Husk</h3>
+                                <p class="step-description">Extracting the fibrous outer layer</p>
+                                <div class="step-image">
+                                    <img src="./husk.png" alt="Husk">
+                                </div>
+                            </div>
+                            <div class="process-arrow">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="process-step" data-aos="zoom-in" data-aos-delay="300">
+                                <div class="step-number">4</div>
+                                <h3 class="step-title">Coconut Fiber</h3>
+                                <p class="step-description">Processing into premium quality fibers</p>
+                                <div class="step-image">
+                                    <img src="./fibre.png" alt="Coconut Fiber">
+                                </div>
+                            </div>
+                            <div class="process-arrow">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="process-step" data-aos="zoom-in" data-aos-delay="400">
+                                <div class="step-number">5</div>
+                                <h3 class="step-title">Coco Peat</h3>
+                                <p class="step-description">Creating nutrient-rich growing medium</p>
+                                <div class="step-image">
+                                    <img src="./peat.png" alt="Coco Peat">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ==================== PRODUCTS PAGE ==================== -->
+            <div id="products" class="page">
+                <section>
+                    <div class="products-container">
+                        <h2 class="section-title" data-aos="fade-up">Our Products</h2>
+                        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Premium products for every need</p>
+                        
+                        <div class="products-grid">
+                            <div class="product-card" data-aos="fade-up">
+                                <div class="product-image">
+                                    <span class="product-badge">Best Seller</span>
+                                    <img src="./gallery7.webp" alt="Coir Mats">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Vermi Compost</h3>
+                                    <p class="product-description">Durable and eco-friendly entrance mats with natural beauty and excellent durability.</p>
+                                    <a href="#contact" class="product-link" onclick="navigateTo('contact')">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="product-image">
+                                    <span class="product-badge">Popular</span>
+                                    <img src="./gallery9.jpg" alt="Coco Peat">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Coco Peat</h3>
+                                    <p class="product-description">Premium growing medium with optimal water retention and nutrient content for plants.</p>
+                                    <a href="#contact" class="product-link" onclick="navigateTo('contact')">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="product-image">
+                                    <img src="./products fibre.jpg" alt="Coir Fiber">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Coir Fiber</h3>
+                                    <p class="product-description">Strong, golden fibers of exceptional strength and durability for various applications.</p>
+                                    <a href="#contact" class="product-link" onclick="navigateTo('contact')">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="product-image">
+                                    <img src="./ropes.jpg" alt="Coir Geo Textiles">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Coir Ropes</h3>
+                                    <p class="product-description">Eco-friendly solutions for sustainabl projects.</p>
+                                    <a href="#contact" class="product-link" onclick="navigateTo('contact')">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+                                <div class="product-image">
+                                    <span class="product-badge">New</span>
+                                    <img src="./pots.jpg" alt="Coir Pots">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Coir Pots</h3>
+                                    <p class="product-description">Biodegradable planting pots that promote healthy root development and can be planted directly.</p>
+                                    <a href="#contact" class="product-link" onclick="navigateTo('contact')">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+                                <div class="product-image">
+                                    <span class="product-badge">Premium</span>
+                                    <img src="./bricks.jpg" alt="Coir Bricks">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Bricks</h3>
+                                    <p class="product-description">Compressed peat blocks that expand when hydrated, perfect for potting mixes and garden beds.</p>
+                                    <a href="#contact" class="product-link" onclick="navigateTo('contact')">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ==================== GALLERY PAGE ==================== -->
+            <div id="gallery" class="page">
+                <section>
+                    <div class="gallery-container">
+                        <h2 class="section-title" data-aos="fade-up">Gallery</h2>
+                        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Our facility and products in action</p>
+                        
+                        <div class="gallery-grid">
+                            <div class="gallery-item" data-aos="zoom-in">
+                                <img src="./gallery10.jpg" alt="Factory View">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-industry"></i></div>
+                                    <div class="gallery-text">Coir Machinery</div>
+                                    <div class="gallery-description">Our state-of-the-art manufacturing facility with advanced processing equipment</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                                <img src="./gallery7.webp" alt="Production Line">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-seedling"></i></div>
+                                    <div class="gallery-text">Vermi Compost</div>
+                                    <div class="gallery-description">Premium organic vermi compost produced using natural processes</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                                <img src="./gallery3.webp" alt="Quality Testing">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-box"></i></div>
+                                    <div class="gallery-text">Bale Packaging</div>
+                                    <div class="gallery-description">Carefully packaged coir products ready for shipment</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                                <img src="./gallery4.webp" alt="Packaging">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-shipping-fast"></i></div>
+                                    <div class="gallery-text">Coir Export</div>
+                                    <div class="gallery-description">Our products being prepared for international export</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
+                                <img src="./gallery6.jpg" alt="Warehouse">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-warehouse"></i></div>
+                                    <div class="gallery-text">Tracters</div>
+                                    <div class="gallery-description">Spacious warehouse for storing finished products</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
+                                <img src="./gallery8.jpg" alt="Shipping">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-truck"></i></div>
+                                    <div class="gallery-text">JCB Bull Loader</div>
+                                    <div class="gallery-description">Our logistics fleet for timely delivery</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="600">
+                                <img src="./gallery9.jpg" alt="Production">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-cogs"></i></div>
+                                    <div class="gallery-text">Coco Peat Production</div>
+                                    <div class="gallery-description">Advanced machinery for processing high-quality coco peat</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="700">
+                                <img src="./gallery1.webp" alt="Factory">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-users"></i></div>
+                                    <div class="gallery-text">Bale Loading</div>
+                                    <div class="gallery-description">Our skilled workforce ensuring quality production</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="800">
+                                <img src="./gallery3.webp" alt="Packaging">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-certificate"></i></div>
+                                    <div class="gallery-text">Product Packaging</div>
+                                    <div class="gallery-description">Quality packaging to preserve product integrity</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="900">
+                                <img src="./gallery12.jpg" alt="Quality Control">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-check-double"></i></div>
+                                    <div class="gallery-text">Loading Stage</div>
+                                    <div class="gallery-description">Rigorous quality checks at every production stage</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="1000">
+                                <img src="./gallery11.jpg" alt="Raw Materials">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-leaf"></i></div>
+                                    <div class="gallery-text">Raw Materials</div>
+                                    <div class="gallery-description">Premium quality coconut husks sourced from sustainable farms</div>
+                                </div>
+                            </div>
+                            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="1100">
+                                <img src="./gallery9.jpg" alt="Finished Products">
+                                <div class="gallery-overlay">
+                                    <div class="gallery-icon"><i class="fas fa-palette"></i></div>
+                                    <div class="gallery-text">Finished Products</div>
+                                    <div class="gallery-description">Wide range of coir products ready for global markets</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ==================== CONTACT PAGE ==================== -->
+            <div id="contact" class="page">
+                <section>
+                    <div class="contact-container">
+                        <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+                        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">We'd love to hear from you</p>
+                        
+                        <div class="contact-content">
+                            <div class="contact-info" data-aos="fade-right">
+                                <h3>Contact Information</h3>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h4>Address</h4>
+                                        <p>Aruna Coir Industries<br>Eluru, Andhra Pradesh<br>Pin: 534449, India</p>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h4>Phone</h4>
+                                        <p>+91 9110372312</p>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-text">
+                                        <h4>Email</h4>
+                                        <p>info@arunacoir.com<br>export@arunacoir.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-form" data-aos="fade-left">
+                                <h3>Send Message</h3>
+                                <form id="contactForm">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" name="name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" name="email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Phone</label>
+                                        <input type="tel" name="phone">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Message</label>
+                                        <textarea name="message" required></textarea>
+                                    </div>
+                                    <button type="submit" class="submit-btn">Send Message</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="footer-container">
+            <div class="container">
+                <div class="footer-logo">Aruna Coir <span>Industries</span></div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+                <p class="copyright">&copy; 2025 Aruna Coir Industries. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== WHATSAPP FLOAT ==================== -->
+    <a href="https://wa.me/919110372312?text=Hi! I'm interested in your coir products." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // ==================== CUSTOM CURSOR ====================
+        const cursor = document.querySelector('.custom-cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorText = document.querySelector('.cursor-text');
+        
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorVisible = true;
+
+        // Update cursor position
+        document.addEventListener('mousemove', (e) => {
+            if (!cursorVisible) return;
+            
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+            
+            cursorFollower.style.left = mouseX + 'px';
+            cursorFollower.style.top = mouseY + 'px';
+            
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+            
+            // Update cursor text position
+            cursorText.style.left = mouseX + 'px';
+            cursorText.style.top = (mouseY - 20) + 'px';
+        });
+
+        // Cursor effects on hover
+        document.addEventListener('mousedown', () => {
+            cursor.classList.add('cursor-grow');
+            cursorFollower.classList.add('cursor-follower-grow');
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.classList.remove('cursor-grow');
+            cursorFollower.classList.remove('cursor-follower-grow');
+        });
+
+        // Hide cursor on touch devices
+        if ('ontouchstart' in window) {
+            cursorVisible = false;
+            cursor.style.display = 'none';
+            cursorFollower.style.display = 'none';
+            cursorDot.style.display = 'none';
+        }
+
+        // Show cursor text on links
+        const links = document.querySelectorAll('a, button, .product-link, .nav-link');
+        links.forEach(link => {
+            link.addEventListener('mouseenter', (e) => {
+                const text = e.target.textContent.trim();
+                cursorText.textContent = text;
+                cursorText.classList.add('show');
+            });
+            
+            link.addEventListener('mouseleave', () => {
+                cursorText.classList.remove('show');
+            });
+        });
+
+        // Dynamic cursor styles based on elements
+        function updateCursorStyle(element) {
+            if (element.matches('a, button, .product-link, .nav-link')) {
+                cursor.style.transform = 'scale(1.5)';
+                cursorFollower.style.borderColor = 'var(--accent)';
+            } else if (element.matches('img')) {
+                cursor.style.transform = 'scale(1.2)';
+            } else {
+                cursor.style.transform = 'scale(1)';
+                cursorFollower.style.borderColor = 'var(--accent)';
+            }
+        }
+
+        document.addEventListener('mouseover', (e) => {
+            updateCursorStyle(e.target);
+        });
+
+        document.addEventListener('mouseout', () => {
+            cursor.style.transform = 'scale(1)';
+            cursorFollower.style.transform = 'scale(1)';
+            cursorFollower.style.borderColor = 'var(--accent)';
+        });
+
+        // ==================== LOADING SCREEN ====================
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').classList.add('hidden');
+                cursorVisible = true;
+                cursor.style.display = 'flex';
+                cursorFollower.style.display = 'block';
+                cursorDot.style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('loadingScreen').style.display = 'none';
+                }, 500);
+            }, 2000);
+        });
+
+        // ==================== DYNAMIC PAGE NAVIGATION ====================
+        class DynamicPageNavigation {
+            constructor() {
+                this.currentPage = 'home';
+                this.pageLoader = document.getElementById('pageLoader');
+                this.pages = document.querySelectorAll('.page');
+                this.navLinks = document.querySelectorAll('.nav-link');
+                
+                this.init();
+            }
+            
+            init() {
+                // Navigation click handlers
+                this.navLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const page = link.getAttribute('data-page');
+                        this.navigateTo(page);
+                    });
+                });
+                
+                // Handle browser back/forward
+                window.addEventListener('popstate', (e) => {
+                    if (e.state && e.state.page) {
+                        this.showPage(e.state.page, false);
+                    }
+                });
+                
+                // Set initial state
+                history.replaceState({ page: 'home' }, '', '#home');
+            }
+            
+            navigateTo(page) {
+                if (page === this.currentPage) return;
+                
+                // Show page loader
+                this.showPageLoader();
+                
+                // Simulate loading delay
+                setTimeout(() => {
+                    this.showPage(page);
+                    this.hidePageLoader();
+                }, 500);
+            }
+            
+            showPage(page, updateHistory = true) {
+                // Hide all pages
+                this.pages.forEach(p => {
+                    p.classList.remove('active');
+                });
+                
+                // Show selected page
+                const targetPage = document.getElementById(page);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                }
+                
+                // Update navigation active state
+                this.navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-page') === page) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Update URL
+                if (updateHistory) {
+                    history.pushState({ page }, '', `#${page}`);
+                }
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                this.currentPage = page;
+                
+                // Trigger page-specific animations
+                this.triggerPageAnimations(page);
+            }
+            
+            showPageLoader() {
+                this.pageLoader.classList.add('active');
+            }
+            
+            hidePageLoader() {
+                this.pageLoader.classList.remove('active');
+            }
+            
+            triggerPageAnimations(page) {
+                // Reinitialize AOS for the new page
+                setTimeout(() => {
+                    AOS.refresh();
+                }, 100);
+                
+                // Animate stats numbers on about page
+                if (page === 'about') {
+                    this.animateStats();
+                }
+            }
+            
+            animateStats() {
+                const statNumbers = document.querySelectorAll('.stat-number');
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-count'));
+                    let current = 0;
+                    const increment = target / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        stat.textContent = Math.floor(current);
+                    }, 30);
+                });
+            }
+        }
+
+        // Initialize navigation system
+        const navigation = new DynamicPageNavigation();
+
+        // Global navigateTo function for button clicks
+        function navigateTo(page) {
+            navigation.navigateTo(page);
+        }
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Create success message
+            const successMessage = document.createElement('div');
+            successMessage.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: var(--success);
+                color: white;
+                padding: 20px 40px;
+                border-radius: 10px;
+                font-weight: 600;
+                z-index: 10000;
+                animation: slideInUp 0.5s ease;
+                box-shadow: var(--shadow-lg);
+            `;
+            successMessage.innerHTML = '<i class="fas fa-check-circle"></i> Thank you for your message. We will get back to you soon.';
+            
+            document.body.appendChild(successMessage);
+            
+            // Remove message after 3 seconds
+            setTimeout(() => {
+                successMessage.remove();
+            }, 3000);
+            
+            // Reset form
+            e.target.reset();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && !this.getAttribute('data-page')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Performance optimization: Lazy load images
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        lazyImages.forEach(img => imageObserver.observe(img));
+
+        // Service Worker registration for offline support (optional)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // navigator.serviceWorker.register('/sw.js')
+                //     .then(registration => console.log('SW registered'))
+                //     .catch(err => console.log('SW registration failed'));
+            });
+        }
+    </script>
+</body>
+</html>
