@@ -7,7 +7,7 @@
     <meta name="description" content="Aruna Coir Industries - Premium coir manufacturer in Eluru, AP. Export-quality coco peat, coir mats, fiber, and geo-textiles."/>
     <meta name="keywords" content="coir manufacturers AP, coco peat export, coir mats wholesale, Aruna Coir Industries, eco-friendly coir"/>
     <meta name="author" content="Aruna Coir Industries"/>
-    <meta name="theme-color" content="#2d6a4f">
+    <meta name="theme-color" content="#2e7d32">
 
     <!-- Title -->
     <title>Aruna Coir Industries</title>
@@ -16,7 +16,7 @@
     <link rel="icon" href="./logo-photoaidcom-cropped.jpg" type="image/x-icon"/>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Merriweather:wght@300;400;700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
@@ -27,28 +27,28 @@
     <!-- Custom CSS -->
     <style>
         :root {
-            --primary: #0f4c5c;
-            --primary-dark: #072e35;
-            --primary-light: #1a6b82;
-            --secondary: #4caf50;
-            --accent: #ff9800;
-            --accent-light: #ffb74d;
-            --light: #f5f7fa;
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --secondary: #8d6e63;
+            --accent: #ff6f00;
+            --accent-light: #ffa726;
+            --light: #f1f8e9;
             --white: #ffffff;
-            --cream: #f8f9fa;
-            --beige: #f1f3f4;
+            --cream: #f5f5f5;
+            --beige: #efebe9;
             --sage: #81c784;
-            --terracotta: #e65100;
+            --terracotta: #d84315;
             --gold: #ffc107;
-            --success: #4caf50;
-            --warning: #ff9800;
-            --gradient: linear-gradient(135deg, #0f4c5c 0%, #1a6b82 100%);
-            --gradient-warm: linear-gradient(135deg, #ff9800 0%, #ffb74d 100%);
-            --gradient-hero: linear-gradient(135deg, rgba(15, 76, 92, 0.9) 0%, rgba(26, 107, 130, 0.85) 100%);
+            --success: #2e7d32;
+            --warning: #ff6f00;
+            --gradient: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+            --gradient-warm: linear-gradient(135deg, #ff6f00 0%, #ffa726 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(46, 125, 50, 0.9) 0%, rgba(76, 175, 80, 0.85) 100%);
             --shadow-sm: 0 5px 15px rgba(0,0,0,0.08);
             --shadow-md: 0 10px 30px rgba(0,0,0,0.12);
-            --shadow-lg: 0 20px 40px rgba(15, 76, 92, 0.15);
-            --shadow-xl: 0 25px 50px rgba(15, 76, 92, 0.2);
+            --shadow-lg: 0 20px 40px rgba(46, 125, 50, 0.15);
+            --shadow-xl: 0 25px 50px rgba(46, 125, 50, 0.2);
             --gray: #546e7a;
             --text-light: #78909c;
         }
@@ -60,7 +60,7 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
             background: var(--light);
             color: var(--primary);
             line-height: 1.6;
@@ -69,7 +69,7 @@
         }
 
         h1, h2, h3, h4, h5, h6 { 
-            font-family: 'Playfair Display', serif; 
+            font-family: 'Merriweather', serif; 
             color: var(--primary);
             line-height: 1.2;
         }
@@ -95,34 +95,36 @@
 
         /* ==================== CUSTOM CURSOR ==================== */
         .custom-cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--primary);
-            border-radius: 50%;
+            width: 40px;
+            height: 40px;
             position: fixed;
             pointer-events: none;
             z-index: 9999;
             transition: all 0.1s ease;
             transform: translate(-50%, -50%);
-            background: rgba(15, 76, 92, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary);
         }
 
         .cursor-follower {
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--accent);
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--accent);
             border-radius: 50%;
             position: fixed;
             pointer-events: none;
             z-index: 9998;
             transition: all 0.15s ease;
             transform: translate(-50%, -50%);
-            background: rgba(255, 152, 0, 0.05);
+            background: rgba(255, 111, 0, 0.05);
         }
 
         .cursor-dot {
-            width: 4px;
-            height: 4px;
+            width: 8px;
+            height: 8px;
             background: var(--gold);
             border-radius: 50%;
             position: fixed;
@@ -132,17 +134,16 @@
         }
 
         .cursor-grow {
-            width: 30px;
-            height: 30px;
-            border: 3px solid var(--primary);
-            background: rgba(15, 76, 92, 0.1);
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
         }
 
         .cursor-follower-grow {
-            width: 60px;
-            height: 60px;
-            border: 2px solid var(--accent);
-            background: rgba(255, 152, 0, 0.1);
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--accent);
+            background: rgba(255, 111, 0, 0.1);
         }
 
         .cursor-text {
@@ -206,7 +207,7 @@
         .loading-logo {
             font-size: 3rem;
             font-weight: 900;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Merriweather', serif;
             color: var(--primary);
             letter-spacing: 2px;
             animation: float 3s ease-in-out infinite;
@@ -307,7 +308,7 @@
         .logo {
             font-size: 2rem;
             font-weight: 900;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Merriweather', serif;
             color: var(--primary);
             letter-spacing: 1px;
             cursor: pointer;
@@ -552,7 +553,7 @@
             background: var(--gradient-warm);
             color: white;
             border: none;
-            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 111, 0, 0.3);
         }
 
         .btn-primary::before {
@@ -572,7 +573,7 @@
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 152, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(255, 111, 0, 0.4);
         }
 
         .btn-outline {
@@ -676,7 +677,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%230f4c5c" stroke-width="0.5" opacity="0.1"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%232e7d32" stroke-width="0.5" opacity="0.1"/></svg>');
             z-index: 0;
         }
 
@@ -735,7 +736,7 @@
             margin: 0 auto 25px;
             color: white;
             font-size: 2rem;
-            box-shadow: 0 10px 20px rgba(15, 76, 92, 0.2);
+            box-shadow: 0 10px 20px rgba(46, 125, 50, 0.2);
         }
 
         .feature-title {
@@ -953,7 +954,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,50 L50,0 L100,50 L50,100 Z" stroke="%230f4c5c" stroke-width="0.5" opacity="0.1"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,50 L50,0 L100,50 L50,100 Z" stroke="%232e7d32" stroke-width="0.5" opacity="0.1"/></svg>');
             z-index: 0;
         }
 
@@ -1019,7 +1020,7 @@
             color: white;
             margin: 0 auto 20px;
             position: relative;
-            box-shadow: 0 10px 20px rgba(15, 76, 92, 0.2);
+            box-shadow: 0 10px 20px rgba(46, 125, 50, 0.2);
         }
 
         .step-number::after {
@@ -1101,7 +1102,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><circle cx="20" cy="20" r="10" stroke="%230f4c5c" stroke-width="0.5" opacity="0.1"/><circle cx="80" cy="80" r="10" stroke="%230f4c5c" stroke-width="0.5" opacity="0.1"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><circle cx="20" cy="20" r="10" stroke="%232e7d32" stroke-width="0.5" opacity="0.1"/><circle cx="80" cy="80" r="10" stroke="%232e7d32" stroke-width="0.5" opacity="0.1"/></svg>');
             z-index: 0;
         }
 
@@ -1164,7 +1165,7 @@
             font-size: 0.8rem;
             font-weight: 600;
             animation: bounce 2s infinite;
-            box-shadow: 0 4px 10px rgba(255, 152, 0, 0.3);
+            box-shadow: 0 4px 10px rgba(255, 111, 0, 0.3);
         }
 
         @keyframes bounce {
@@ -1230,7 +1231,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,0 L100,100 L0,100 Z" stroke="%230f4c5c" stroke-width="0.5" opacity="0.1"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,0 L100,100 L0,100 Z" stroke="%232e7d32" stroke-width="0.5" opacity="0.1"/></svg>');
             z-index: 0;
         }
 
@@ -1262,7 +1263,7 @@
 
         .gallery-item:hover {
             transform: scale(1.02);
-            box-shadow: 0 25px 50px rgba(15, 76, 92, 0.25);
+            box-shadow: 0 25px 50px rgba(46, 125, 50, 0.25);
         }
 
         .gallery-item img {
@@ -1282,7 +1283,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, transparent 0%, rgba(15, 76, 92, 0.4) 50%, rgba(15, 76, 92, 0.9) 100%);
+            background: linear-gradient(to bottom, transparent 0%, rgba(46, 125, 50, 0.4) 50%, rgba(46, 125, 50, 0.9) 100%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -1348,7 +1349,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,50 L50,0 L100,50 L50,100 Z" stroke="%230f4c5c" stroke-width="0.5" opacity="0.1"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,50 L50,0 L100,50 L50,100 Z" stroke="%232e7d32" stroke-width="0.5" opacity="0.1"/></svg>');
             z-index: 0;
         }
 
@@ -1404,7 +1405,7 @@
             margin-right: 20px;
             color: white;
             font-size: 1.2rem;
-            box-shadow: 0 10px 20px rgba(15, 76, 92, 0.2);
+            box-shadow: 0 10px 20px rgba(46, 125, 50, 0.2);
         }
 
         .contact-text h4 {
@@ -1477,7 +1478,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(15, 76, 92, 0.3);
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
         }
 
         .submit-btn:hover {
@@ -1513,7 +1514,7 @@
         .footer-logo {
             font-size: 2rem;
             font-weight: 900;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Merriweather', serif;
             margin-bottom: 20px;
         }
 
@@ -1597,7 +1598,7 @@
             }
             
             .gallery-item {
-                height: 400px;
+                height: 700px;
             }
         }
 
@@ -1673,7 +1674,7 @@
 <body>
 
     <!-- ==================== CUSTOM CURSOR ==================== -->
-    <div class="custom-cursor"></div>
+    <div class="custom-cursor">🌴</div>
     <div class="cursor-follower"></div>
     <div class="cursor-dot"></div>
     <div class="cursor-text"></div>
@@ -1972,11 +1973,35 @@
                             
                             <div class="product-card" data-aos="fade-up" data-aos-delay="300">
                                 <div class="product-image">
-                                    <img src="https://picsum.photos/seed/coir-geo-textiles/400/300.jpg" alt="Coir Geo Textiles">
+                                    <img src="./ropes.jpg" alt="Coir Geo Textiles">
                                 </div>
                                 <div class="product-info">
-                                    <h3 class="product-title">Geo Textiles</h3>
-                                    <p class="product-description">Eco-friendly erosion control solutions for sustainable landscaping projects.</p>
+                                    <h3 class="product-title">Coir Ropes</h3>
+                                    <p class="product-description">Eco-friendly solutions for sustainabl projects.</p>
+                                    <a href="#contact" class="product-link" onclick="navigateTo('contact')">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+                                <div class="product-image">
+                                    <span class="product-badge">New</span>
+                                    <img src="./pots.jpg" alt="Coir Pots">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Coir Pots</h3>
+                                    <p class="product-description">Biodegradable planting pots that promote healthy root development and can be planted directly.</p>
+                                    <a href="#contact" class="product-link" onclick="navigateTo('contact')">Enquire Now <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            
+                            <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+                                <div class="product-image">
+                                    <span class="product-badge">Premium</span>
+                                    <img src="./bricks.jpg" alt="Coir Bricks">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Bricks</h3>
+                                    <p class="product-description">Compressed peat blocks that expand when hydrated, perfect for potting mixes and garden beds.</p>
                                     <a href="#contact" class="product-link" onclick="navigateTo('contact')">Enquire Now <i class="fas fa-arrow-right"></i></a>
                                 </div>
                             </div>
@@ -2255,14 +2280,12 @@
         function updateCursorStyle(element) {
             if (element.matches('a, button, .product-link, .nav-link')) {
                 cursor.style.transform = 'scale(1.5)';
-                cursor.style.borderColor = 'var(--accent)';
                 cursorFollower.style.borderColor = 'var(--accent)';
             } else if (element.matches('img')) {
                 cursor.style.transform = 'scale(1.2)';
             } else {
                 cursor.style.transform = 'scale(1)';
-                cursor.style.borderColor = 'var(--primary)';
-                cursorFollower.style.borderColor = 'var(--primary)';
+                cursorFollower.style.borderColor = 'var(--accent)';
             }
         }
 
@@ -2272,9 +2295,8 @@
 
         document.addEventListener('mouseout', () => {
             cursor.style.transform = 'scale(1)';
-            cursor.style.borderColor = 'var(--primary)';
             cursorFollower.style.transform = 'scale(1)';
-            cursorFollower.style.borderColor = 'var(--primary)';
+            cursorFollower.style.borderColor = 'var(--accent)';
         });
 
         // ==================== LOADING SCREEN ====================
@@ -2282,7 +2304,7 @@
             setTimeout(() => {
                 document.getElementById('loadingScreen').classList.add('hidden');
                 cursorVisible = true;
-                cursor.style.display = 'block';
+                cursor.style.display = 'flex';
                 cursorFollower.style.display = 'block';
                 cursorDot.style.display = 'block';
                 setTimeout(() => {
